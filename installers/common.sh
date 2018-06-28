@@ -178,19 +178,19 @@ function default_configuration() {
         sudo mv /etc/default/hostapd /tmp/default_hostapd.old || install_error "Unable to remove old /etc/default/hostapd file"
     fi
     rudo rm $webroot_dir/config/default_hostapd
-    wget https://raw.githubusercontent.com/xeenin/dodAP/master/config/default_hostapd -O $webroot_dir/config/default_hostapd
+    sudo wget https://raw.githubusercontent.com/xeenin/dodAP/master/config/default_hostapd -O $webroot_dir/config/default_hostapd
     sudo mv $webroot_dir/config/default_hostapd /etc/default/hostapd || install_error "Unable to move hostapd defaults file"
 
     sudo rm $webroot_dir/config/hostapd.conf
-    wget https://raw.githubusercontent.com/xeenin/dodAP/master/config/hostapd.conf -O $webroot_dir/config/hostapd.conf
+    sudo wget https://raw.githubusercontent.com/xeenin/dodAP/master/config/hostapd.conf -O $webroot_dir/config/hostapd.conf
     sudo mv $webroot_dir/config/hostapd.conf /etc/hostapd/hostapd.conf || install_error "Unable to move hostapd configuration file"
 
     sudo rm $webroot_dir/config/dnsmasq.conf
-    wget https://raw.githubusercontent.com/xeenin/dodAP/master/config/dnsmasq.conf -O $webroot_dir/config/dnsmasq.conf
+    sudo wget https://raw.githubusercontent.com/xeenin/dodAP/master/config/dnsmasq.conf -O $webroot_dir/config/dnsmasq.conf
     sudo mv $webroot_dir/config/dnsmasq.conf /etc/dnsmasq.conf || install_error "Unable to move dnsmasq configuration file"
 
     sudo rm $webroot_dir/config/dhcpcd.conf
-    wget https://raw.githubusercontent.com/xeenin/dodAP/master/config/dhcpcd.conf -O $webroot_dir/config/dhcpcd.conf
+    sudo wget https://raw.githubusercontent.com/xeenin/dodAP/master/config/dhcpcd.conf -O $webroot_dir/config/dhcpcd.conf
     sudo mv $webroot_dir/config/dhcpcd.conf /etc/dhcpcd.conf || install_error "Unable to move dhcpcd configuration file"
 
     # Generate required lines for Rasp AP to place into rc.local file.
