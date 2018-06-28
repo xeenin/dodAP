@@ -37,15 +37,19 @@ function check_for_backups() {
         if [ -f "$raspap_dir/backups/interfaces" ]; then
                 sudo cp "$raspap_dir/backups/interfaces" /etc/network/interfaces
         fi
+
         if [ -f "$raspap_dir/backups/hostapd.conf" ]; then           
                 sudo cp "$raspap_dir/backups/hostapd.conf" /etc/hostapd/hostapd.conf
         fi
+
         if [ -f "$raspap_dir/backups/dnsmasq.conf" ]; then
                 sudo cp "$raspap_dir/backups/dnsmasq.conf" /etc/dnsmasq.conf
         fi
+
         if [ -f "$raspap_dir/backups/dhcpcd.conf" ]; then
                 sudo cp "$raspap_dir/backups/dhcpcd.conf" /etc/dhcpcd.conf
         fi
+        
         if [ -f "$raspap_dir/backups/rc.local" ]; then
                 sudo cp "$raspap_dir/backups/rc.local" /etc/rc.local
         fi
