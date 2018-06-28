@@ -77,12 +77,15 @@ function clean_sudoers() {
     # should this check for only our commands?
     sudo sed -i '/www-data/d' /etc/sudoers
 }
-
+function stopServices(){
+    sudo systemctl disable hostapd.service
+}
 function remove_raspap() {
     config_uninstallation
     check_for_backups
     remove_raspap_directories
     clean_sudoers
+    stopServices
     sudo reboot
 }
 
