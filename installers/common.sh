@@ -192,10 +192,7 @@ function default_configuration() {
     lines=(
     'echo 1 > \/proc\/sys\/net\/ipv4\/ip_forward #RASPAP'
     'iptables -t nat -A POSTROUTING -j MASQUERADE #RASPAP'
-    'source activate dod-enviroment'
-    'cd tmp/'
-    'python main.py'
-    
+
     )
     
     for line in "${lines[@]}"; do

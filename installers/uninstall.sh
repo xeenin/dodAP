@@ -48,7 +48,6 @@ function check_for_backups() {
         fi
         if [ -f "$raspap_dir/backups/rc.local" ]; then
                 sudo cp "$raspap_dir/backups/rc.local" /etc/rc.local
-            fi
         fi
     fi
 }
