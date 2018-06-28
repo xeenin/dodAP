@@ -83,7 +83,7 @@ function remove_raspap() {
     check_for_backups
     remove_raspap_directories
     clean_sudoers
+    sudo reboot
 }
 
 remove_raspap
-sudo reboot
