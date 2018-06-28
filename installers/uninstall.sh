@@ -49,7 +49,7 @@ function check_for_backups() {
         if [ -f "$raspap_dir/backups/dhcpcd.conf" ]; then
                 sudo cp "$raspap_dir/backups/dhcpcd.conf" /etc/dhcpcd.conf
         fi
-        
+
         if [ -f "$raspap_dir/backups/rc.local" ]; then
                 sudo cp "$raspap_dir/backups/rc.local" /etc/rc.local
         fi
@@ -86,3 +86,4 @@ function remove_raspap() {
 }
 
 remove_raspap
+sudo reboot
