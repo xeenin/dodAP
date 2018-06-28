@@ -89,8 +89,8 @@ function stopServices(){
     #sudo systemctl disable dhcpcd.service
 
     sudo systemctl enable wpa_supplicant
-    sudo wpa_supplicant -iwlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf
-    wpa_cli -i wlan0 reconfigure
+    sudo wpa_supplicant -iwlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf &
+    #wpa_cli -i wlan0 reconfigure
     sudo dhcpcd wlan0
 }
 function remove_raspap() {
