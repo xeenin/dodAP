@@ -47,6 +47,7 @@ function check_for_backups() {
         fi
 
         if [ -f "$raspap_dir/backups/dhcpcd.conf" ]; then
+                sudo wget https://raw.githubusercontent.com/xeenin/dodAP/master/config/dhcpcd_wifi.conf -O $raspap_dir/backups/dhcpcd.conf
                 sudo cp "$raspap_dir/backups/dhcpcd.conf" /etc/dhcpcd.conf
         fi
 
@@ -80,6 +81,15 @@ function clean_sudoers() {
 function stopServices(){
     sudo systemctl stop hostapd.service
     sudo systemctl disable hostapd.service
+    sudo systemctl stop lighttpd.service
+    sudo systemctl disable lighttpd.service
+    sudo systemctl stop dnsmasq.service
+    sudo systemctl disable dnsmasq.service
+    #sudo systemctl stop dhcpcd.service
+    #sudo systemctl disable dhcpcd.service
+
+    sudo systemctl enable wpa_supplicant
+    sudo wpa_supplicant -iwlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf & sudo dhcpcd wlan0
 }
 function remove_raspap() {
     config_uninstallation
