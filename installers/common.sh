@@ -268,6 +268,7 @@ function patch_system_files() {
 }
 
 function install_complete() {
+    sudo systemctl enable hostapd.service
     sudo systemctl start hostapd.service
     install_log "Installation completed!"
     sudo shutdown -r now || install_error "Unable to execute shutdown"

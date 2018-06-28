@@ -78,6 +78,7 @@ function clean_sudoers() {
     sudo sed -i '/www-data/d' /etc/sudoers
 }
 function stopServices(){
+    sudo systemctl stop hostapd.service
     sudo systemctl disable hostapd.service
 }
 function remove_raspap() {
